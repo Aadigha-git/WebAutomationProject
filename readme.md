@@ -4,25 +4,14 @@ This project demonstrates a robust pattern for running synchronous Playwright br
 
 The example task logs into [saucedemo.com](https://www.saucedemo.com/), finds the price of a "Sauce Labs Backpack," and returns the result.
 
-## ✨ Features
-
-* **Reusable `PlaywrightDriver` Class**: A context-managed (`with ...`) driver that handles browser launch and teardown automatically.
-* **Robust Actions**: Helper methods for `Maps`, `click`, and `type_text` with built-in retries and timeouts.
-* **Error Handling**: Automatically takes screenshots on navigation, click, or typing failures for easy debugging.
-* **Clean Separation**: Business logic (`SauceDemoTask`) is separate from the driver logic (`PlaywrightDriver`).
-* **Dual-Mode Operation**:
-    * **CLI**: Can be run directly from the command line for testing.
-    * **API**: A FastAPI server exposes the automation via a POST endpoint.
-* **Async-Safe**: Uses `asyncio.to_thread` to run the synchronous Playwright code in a separate thread, preventing it from blocking the FastAPI event loop.
 
 ## 🛠️ Tech Stack
 
 * **Python 3.8+**
 * **Playwright**: For browser automation.
-* **FastAPI**: For creating the web API.
-* **Uvicorn**: As the ASGI server to run FastAPI.
 
-## 🚀 Getting Started
+
+## Getting Started
 
 ### 1. Setup
 
@@ -30,3 +19,15 @@ The example task logs into [saucedemo.com](https://www.saucedemo.com/), finds th
 ```bash
 git clone <your-repo-url>
 cd <your-repo-directory>
+
+**Create and activate a virtual environment:**
+python -m venv venv
+On Windows, use `.\venv\Scripts\activate`
+
+**Install dependencies**
+pip install -r requirements.txt
+
+**Install Playwright Browsers**
+playwright install chromium
+
+**Run main.py**
