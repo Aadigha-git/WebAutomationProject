@@ -1,0 +1,17 @@
+# Core Requirements
+playwright==1.48.0
+
+# Optional: AI Challenge
+anthropic==0.39.0  # For Claude API
+openai==1.54.0  # Alternative: OpenAI API
+mcp==1.1.2  # Model Context Protocol
+
+# Optional: API Service
+fastapi==0.115.4
+uvicorn[standard]==0.32.0
+pydantic==2.9.2
+python-multipart==0.0.12
+
+# Utilities
+python-dotenv==1.0.1
+requests==2.32.3

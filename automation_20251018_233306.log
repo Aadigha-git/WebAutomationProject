@@ -1,0 +1,18 @@
+2025-10-18 23:33:09,412 - INFO - Browser initialized successfully
+2025-10-18 23:33:09,412 - INFO - === Starting Sauce Demo Task ===
+2025-10-18 23:33:09,412 - INFO - Navigating to: https://www.saucedemo.com
+2025-10-18 23:33:09,900 - INFO - Successfully loaded: https://www.saucedemo.com
+2025-10-18 23:33:09,902 - INFO - Attempting login as: standard_user
+2025-10-18 23:33:09,902 - INFO - Typing into: #user-name
+2025-10-18 23:33:10,043 - INFO - Successfully typed into: #user-name
+2025-10-18 23:33:10,043 - INFO - Typing into: #password
+2025-10-18 23:33:10,128 - INFO - Successfully typed into: #password
+2025-10-18 23:33:10,149 - INFO - Clicking: #login-button (attempt 1/3)
+2025-10-18 23:33:10,337 - INFO - Successfully clicked: #login-button
+2025-10-18 23:33:10,339 - INFO - Waiting for selector: .inventory_list
+2025-10-18 23:33:10,361 - INFO - Login successful
+2025-10-18 23:33:10,361 - INFO - Looking for product: Sauce Labs Backpack
+2025-10-18 23:33:10,391 - INFO - Found 6 products
+2025-10-18 23:33:10,453 - INFO - Found product Sauce Labs Backpack with price $29.99
+2025-10-18 23:33:10,453 - INFO - Task completed successfully! Product: Sauce Labs Backpack, Price: $29.99
+2025-10-18 23:33:10,991 - INFO - Browser closed
