@@ -24,16 +24,18 @@ Download the repository and navigate into the folder
 ```bash
 python -m venv venv
 On Windows, use `.\venv\Scripts\activate`
-
+```
 
 **Install dependencies**
 ```bash
 pip install -r requirements.txt
-
+```
 
 **Install Playwright Browsers**
 ```bash
 playwright install chromium
+```
 
 ```bash
 **Run main.py**
+```
