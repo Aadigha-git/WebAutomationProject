@@ -1,14 +1,8 @@
-"""
-Core Playwright automation
-"""
-
-import time
-import re
-import logging
+import asyncio, logging, re, time
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
 from fastapi import FastAPI
 from pydantic import BaseModel
-import asyncio
+
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
@@ -104,23 +98,23 @@ class SauceDemoTask:
     def run(self) -> str:
         logger.info("Starting SauceDemo task...")
         if not self.driver.navigate(self.URL):
-            return "❌ Failed to navigate"
+            return "Failed to navigate"
 
         if not self.driver.type_text("#user-name", "standard_user"):
-            return "❌ Failed typing username"
+            return "Failed typing username"
         if not self.driver.type_text("#password", "secret_sauce"):
-            return "❌ Failed typing password"
+            return "Failed typing password"
         if not self.driver.click("#login-button"):
-            return "❌ Failed clicking login"
+            return "Failed clicking login"
 
         time.sleep(2)
         product_name = "Sauce Labs Backpack"
         price = self._get_product_price(product_name)
         if price:
-            result = f"✅ Success! {product_name} costs {price}"
+            result = f"Success! {product_name} costs {price}"
             logger.info(result)
             return result
-        return "❌ Product not found"
+        return "Product not found"
 
     def _get_product_price(self, product_name: str) -> str:
         try:
@@ -142,7 +136,7 @@ class SauceDemoTask:
 # ----------------------------
 def run_automation(goal: str = "default") -> dict:
     """
-    Main entry point that runs the Playwright task.
+    Main entry point runs Playwright task.
     """
     logger.info(f"Running automation for goal: {goal}")
     with PlaywrightDriver(headless=True) as driver:
@@ -157,7 +151,7 @@ if __name__ == "__main__":
 
 
 # ----------------------------
-# FastAPI Wrapper
+# FastAPI Wrapper WIP
 # ----------------------------
 app = FastAPI(title="Automation API", version="1.0")
 
@@ -173,6 +167,5 @@ async def run_goal(req: GoalRequest):
     Example:
     curl -X POST "http://localhost:8000/run" -H "Content-Type: application/json" -d '{"goal": "check product price"}'
     """
-    # Offload to thread so Playwright can run synchronously without blocking the event loop
     result = await asyncio.to_thread(run_automation, req.goal)
     return result
